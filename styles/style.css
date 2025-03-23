@@ -135,10 +135,7 @@ body {
   gap: 10px;
   transition: background 0.5s;
 }
-.add-to-cart:hover {
-  background: rgb(26, 64, 50);
-}
-.add-to-cart:focus {
+.add-to-cart:hover, .add-to-cart:focus {
   background: rgb(26, 64, 50);
 }
 
