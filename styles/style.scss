@@ -1,0 +1,201 @@
+// css reset
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+  
+ul, ol {
+    list-style: none;
+}
+  
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+img, video {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+  
+button, input, textarea, select {
+font: inherit;
+    border: none;
+    background: none;
+    outline: none;
+}
+  
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+// colors
+$black: rgb(28, 35, 43);
+$grey: rgb(108, 114, 137);
+$cream: rgba(242, 234, 226);
+$white: rgba(255, 255, 255);
+$green500: rgb(61, 129, 104);
+$green700: rgb(26, 64, 50);
+$shadow: rgba(0, 0, 0, 0.05);
+
+// typography
+@mixin text-1 {
+    font-family: "Fraunces", serif;
+    font-size: 32px;
+    line-height: 100%;
+    font-weight: 700;
+}
+
+@mixin text-2 {
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 110%;
+}
+
+@mixin text-3 {
+    font-size: 14px;
+    line-height: 160%;
+}
+
+@mixin text-4 {
+    font-size: 12px;
+    line-height: 120%;
+    letter-spacing: 5px;
+}
+
+@mixin text-5 {
+    font-size: 13px;
+    line-height: 120%;
+    text-decoration: line-through;
+}
+
+// styling
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "Montserrat", sans-serif;
+    min-height: 100vh;
+    background: $cream;
+}
+
+.product-card {
+    display: flex;
+    background: $white;
+    border-radius: 8px;
+    max-width: 600px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px $shadow;
+    margin: 10px;
+}
+
+.product-image {
+    flex: 1;
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    .mobile-image {
+        display: none;
+    }
+}
+
+.product-details {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    max-width: 236px;
+    margin: 32px;
+    flex: 1;
+}
+
+.product-category {
+    @include text-4;
+    color: $grey;
+    margin-bottom: 24px;
+}
+
+.product-title {
+    @include text-1;
+    color: $black;
+    margin-bottom: 24px;
+}
+
+.product-description {
+    @include text-3;
+    color: $grey;
+    margin-bottom: 32px;
+}
+
+.product-pricing {
+    display: flex;
+    align-items: center;
+    margin-bottom: 32px;
+}
+
+.current-price {
+    @include text-1;
+    color: $green500;
+    margin-right: 15px;
+}
+
+.original-price {
+    @include text-5;
+    color: $grey;
+}
+
+.add-to-cart {
+    @include text-2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: $white;
+    background: $green500;
+    height: 50px;
+    width: 100%;
+    border-radius: 8px;
+    cursor: pointer;
+    padding: 16px;
+    gap: 10px;
+    transition: background 0.5s;
+    &:hover {
+        background: $green700;
+    }
+    &:focus {
+        background: $green700;
+    }
+}
+
+@media (max-width: 425px) {
+    .product-card {
+        flex-direction: column;
+    }
+
+    .product-details {
+        max-width: 350px;
+    }
+
+    .product-description {
+        margin-bottom: 24px;
+    }
+
+    .product-pricing {
+        margin-bottom: 24px;
+    }
+
+    .product-image {
+        height: 240px;
+
+        .desktop-image {
+            display: none;
+        }
+
+        .mobile-image {
+            display: block;
+        }
+    }
+}
